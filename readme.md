@@ -2,7 +2,7 @@
 
 ## 展示
 
-1 [page](https://idben.github.io/scroll_01/)
+1. [page](https://idben.github.io/scroll_01/)
 
 ## 主要分支
 1. 使用單純的 js 計算捲動到哪個區間。
