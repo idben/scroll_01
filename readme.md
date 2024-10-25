@@ -7,8 +7,11 @@
 
 ## 分支 dev2
 1. 主要分支的 react 版本
+2. 主分支的 css 改成了 module sass
+3. 因為整頁的捲動事件要註冊在 document 或 window 中，而現在 react 的節點中沒有 document 或 window，因此在頁面載入完時用 useEffect 在 window 註冊
 
 ## 分支 dev3
+1. 使用 gsap 來做捲軸事件的計算與效果觸發
 
 ## 分支 dev4
 
