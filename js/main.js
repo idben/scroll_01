@@ -3,7 +3,7 @@ const main = document.querySelector("main");
 const areas = document.querySelectorAll(".area");
 let isScrolling;
 
-areas.forEach(area => {
+areas.forEach((area, index) => {
   const imgURL = area.dataset.image;
   const title = area.dataset.title;
   let node;
@@ -16,6 +16,9 @@ areas.forEach(area => {
   node.classList.add("text");
   node.innerHTML = title;
   block.append(node);
+  if(index == areas.length-1){
+    document.querySelector(`.area1`).classList.add("active");
+  }
 });
 
 document.addEventListener('scroll', function () {
