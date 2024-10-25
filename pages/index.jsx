@@ -1,10 +1,6 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.sass";
 import { useEffect, useRef, useState } from "react";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const areas = [
   { className: 'area1', image: 'https://picsum.photos/1200/1200/?1', title: '頁面1', blockText: '1' },
@@ -19,23 +15,39 @@ export default function Home() {
   const areasRef = useRef([]);
 
   useEffect(() => {
-    areasRef.current.forEach((area, index) => {
-      ScrollTrigger.create({
-        trigger: area,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => {
-          area.classList.add(styles.active);
-          console.log(`滾動到區域 ${index + 1}`);
-        },
-        onLeave: () => area.classList.remove(styles.active),
-        onEnterBack: () => area.classList.add(styles.active),
-        onLeaveBack: () => area.classList.remove(styles.active),
-        markers: false 
-      });
-    });
+    if (typeof window !== 'undefined') {
+      const loadGSAP = async () => {
+        const gsapModule = await import('gsap');
+        const ScrollTrigger = await import('gsap/ScrollTrigger');
+
+        gsapModule.gsap.registerPlugin(ScrollTrigger.ScrollTrigger);
+
+        areasRef.current.forEach((area, index) => {
+          gsapModule.gsap.to(area, {
+            scrollTrigger: {
+              trigger: area,
+              start: "top center",
+              end: "bottom center",
+              onEnter: () => {
+                area.classList.add(styles.active);
+                console.log(`滾動到區域 ${index + 1}`);
+              },
+              onLeave: () => area.classList.remove(styles.active),
+              onEnterBack: () => area.classList.add(styles.active),
+              onLeaveBack: () => area.classList.remove(styles.active),
+            }
+          });
+        });
+      };
+
+      loadGSAP();
+    }
+
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      if (typeof window !== 'undefined') {
+        const ScrollTrigger = require('gsap/ScrollTrigger').ScrollTrigger;
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      }
     };
   }, []);
 
