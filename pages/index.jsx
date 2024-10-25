@@ -12,7 +12,7 @@ const areas = [
 ];
 
 export default function Home() {
-  const [activeArea, setActiveArea] = useState(null);
+  const [activeArea, setActiveArea] = useState(1);
   const scrollTimeoutRef = useRef(null);
 
   const getArea = () => {
