@@ -7,10 +7,13 @@ body{
   padding: 0;
   margin: 0;
   min-height: 100dvh;
+
 }
 .area{
   position: relative;
   min-height: 100dvh;
+  width: 100vw;
+  overflow-x: hidden;
   font-size: 200px;
   display: flex;
   justify-content: center;
