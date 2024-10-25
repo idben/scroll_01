@@ -40,29 +40,3 @@ function getArea() {
 
   return currentArea;
 }
-
-// function getArea() {
-//   let scrollNum = 0;
-//   const scrollPosition = html.scrollTop;
-//   console.log(scrollPosition);
-  
-//   if (scrollPosition >= 0 && scrollPosition < window.innerHeight) {
-//     console.log('滾動到區域 1');
-//     scrollNum = 1;
-//   } else if (scrollPosition >= window.innerHeight && scrollPosition < window.innerHeight * 2) {
-//     console.log('滾動到區域 2');
-//     scrollNum = 2;
-//   } else if (scrollPosition >= window.innerHeight * 2 && scrollPosition < window.innerHeight * 3) {
-//     console.log('滾動到區域 3');
-//     scrollNum = 3;
-//   } else if (scrollPosition >= window.innerHeight * 3 && scrollPosition < window.innerHeight * 4) {
-//     console.log('滾動到區域 4');
-//     scrollNum = 4;
-//   } else if (scrollPosition >= window.innerHeight * 4 && scrollPosition < window.innerHeight * 5) {
-//     console.log('滾動到區域 5');
-//     scrollNum = 4;
-//   } else if (scrollPosition >= window.innerHeight * 5) {
-//     console.log('滾動到區域 6');
-//     scrollNum = 6;
-//   }
-// }
