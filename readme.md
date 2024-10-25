@@ -11,8 +11,10 @@
 3. 因為整頁的捲動事件要註冊在 document 或 window 中，而現在 react 的節點中沒有 document 或 window，因此在頁面載入完時用 useEffect 在 window 註冊
 
 ## 分支 dev3
+1. 使用 gsap 來做捲軸事件的計算與效果觸發
 
 ## 分支 dev4
+2. 將 dev3 的部份在 react 中重寫
 
 ## 有使用到 next 的部份
 
